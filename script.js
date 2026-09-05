@@ -287,9 +287,9 @@ cardSelect.addEventListener("change", function () {
         selectedCard === "amex-platinum" ||
         selectedCard === "amex-gold"
     ) {
-        bonusLabel.textContent = "Bonus / Cap Information";
+        bonusLabel.textContent = "Bonus / Cap Info";
     } else {
-        bonusLabel.textContent = "Bonus / Cap Information";
+        bonusLabel.textContent = "Bonus / Cap Info";
     }
 
 

@@ -1,11 +1,16 @@
-/* ===============================
-   GLOBAL
-================================ */
+/* =========================================
+   D-POINT & MILES CALCULATOR
+   CLEAN MOBILE-FIRST UI
+   ========================================= */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -18,65 +23,65 @@ body {
         "Segoe UI",
         sans-serif;
 
-    color: #123f3a;
+    color: #064b43;
 
     background:
         radial-gradient(
-            circle at 88% 8%,
-            rgba(255, 148, 51, 0.20),
+            circle at 90% 5%,
+            rgba(255, 145, 45, 0.18),
             transparent 28%
         ),
         radial-gradient(
-            circle at 8% 85%,
+            circle at 5% 85%,
             rgba(0, 89, 78, 0.10),
-            transparent 30%
+            transparent 28%
         ),
-        #f7f2eb;
+        #f5f0e8;
 
-    padding: 18px;
+    padding: 0;
 }
 
-/* ===============================
-   MAIN CONTAINER
-================================ */
+
+/* =========================================
+   MOBILE APP SHELL
+   ========================================= */
 
 .container {
     width: 100%;
-    max-width: 520px;
+    max-width: 440px;
+
+    min-height: 100vh;
+
     margin: 0 auto;
+
+    padding:
+        24px
+        18px
+        40px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fbf7f0 0%,
+            #f7f1e8 100%
+        );
+
+    position: relative;
+    overflow: hidden;
 }
 
-/* ===============================
-   HEADER
-================================ */
-
-h1 {
-    font-size: 42px;
-    font-weight: 500;
-    letter-spacing: -1.5px;
-    margin-bottom: 12px;
-    line-height: 1.05;
-}
-
-.subtitle {
-    max-width: 580px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #68635e;
-    margin-bottom: 32px;
-}
 
 /* =========================================
-   APP HEADER
+   BRAND
    ========================================= */
 
 .app-header {
     position: relative;
-    padding: 12px 4px 30px;
+    z-index: 1;
+
+    padding-bottom: 26px;
 }
 
-
-/* BRAND */
 
 .brand-row {
     display: flex;
@@ -84,17 +89,22 @@ h1 {
 
     gap: 10px;
 
-    margin-bottom: 30px;
+    margin-bottom: 34px;
 }
 
-
-.brand-symbol {
-    position: relative;
-
-    width: 46px;
-    height: 28px;
+.danamon-logo {
+    display: block;
+    width: 85px;
+    height: auto;
+    object-fit: contain;
 }
 
+.brand-copy span {
+    margin-top: 2px;
+    color: #818987;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+}
 
 .symbol-orange {
     position: absolute;
@@ -120,7 +130,7 @@ h1 {
     height: 8px;
 
     right: 0;
-    top: 13px;
+    top: 14px;
 
     border-radius: 2px;
 
@@ -134,7 +144,7 @@ h1 {
     display: flex;
     flex-direction: column;
 
-    line-height: 1.05;
+    line-height: 1;
 }
 
 
@@ -147,31 +157,37 @@ h1 {
 
 
 .brand-copy span {
-    margin-top: 4px;
+    margin-top: 5px;
 
-    color: #7a817f;
+    color: #818987;
 
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 0.05em;
 }
 
-/* HERO */
+
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
     position: relative;
+
+    min-height: 245px;
 }
 
 
 .eyebrow {
-    margin-bottom: 10px;
+    margin-bottom: 11px;
 
     color: #ef5423;
 
-    font-size: 10px;
-    font-weight: 800;
+    font-size: 15px;
+    font-weight: 700;
 
-    letter-spacing: 0.16em;
+    letter-spacing: 0.10em;
+    line-height: 1;
 }
 
 
@@ -179,12 +195,14 @@ h1 {
     position: relative;
     z-index: 2;
 
-    max-width: 390px;
+    width: 72%;
+    max-width: 300px;
 
-    color: #064b43;
+    color: #00594e;
 
-    font-size: 42px;
-    line-height: 0.98;
+    font-size: clamp(35px, 10vw, 45px);
+
+    line-height: 1;
 
     letter-spacing: -0.045em;
 
@@ -203,93 +221,250 @@ h1 {
     position: relative;
     z-index: 2;
 
-    max-width: 320px;
+    width: 62%;
+    max-width: 250px;
 
-    margin-top: 16px;
+    margin-top: 18px;
 
-    color: #747e7b;
+    color: #75807d;
 
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.55;
 }
 
-.hero {
-    min-height: 250px;
+.hero-eyebrow {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+
+    color: #f45127;
+    text-transform: uppercase;
 }
 
-/* ===============================
-   GLASS CARD
-================================ */
+/* =========================================
+   TRAVEL VISUAL
+   ========================================= */
 
-.calculator {
-    position: relative;
+.hero-visual {
+    position: absolute;
 
-    background: rgba(255, 255, 255, 0.58);
+    right: -28px;
+    top: 50px;
 
-    border: 1px solid rgba(255, 255, 255, 0.75);
-
-    backdrop-filter: blur(22px);
-    -webkit-backdrop-filter: blur(22px);
-
-    padding: 34px;
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 25px 60px rgba(76, 56, 38, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    width: 145px;
+    height: 220px;
 
     overflow: hidden;
+
+    border-radius:
+        80px
+        80px
+        32px
+        32px;
+
+    isolation: isolate;
+
+    box-shadow:
+        0 18px 35px rgba(226, 101, 42, 0.14);
 }
 
+    .hero-travel-image {
+    position: absolute;
+    inset: 0;
 
-/* Decorative orange glow */
+    width: 100%;
+    height: 100%;
 
-.calculator::before {
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 1;
+
+    filter:
+        saturate(0.92)
+        contrast(0.96)
+        brightness(1.06);
+
+    transform: scale(1.03);
+}
+
+    .hero-visual::after {
     content: "";
 
     position: absolute;
+    inset: 0;
 
-    width: 240px;
-    height: 240px;
-
-    border-radius: 50%;
+    z-index: 2;
 
     background:
         radial-gradient(
-            circle,
-            rgba(255, 126, 30, 0.30),
-            rgba(255, 126, 30, 0)
+            circle at 78% 24%,
+            rgba(255, 240, 220, 0.42),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 18% 80%,
+            rgba(255, 177, 93, 0.28),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 245, 235, 0.10),
+            rgba(243, 125, 54, 0.12)
         );
 
-    right: -100px;
-    top: -110px;
+    backdrop-filter: blur(1.2px);
+    -webkit-backdrop-filter: blur(1.2px);
 
     pointer-events: none;
 }
 
 
+.hero-visual::before {
+    content: "";
+
+    position: absolute;
+
+    left: -20%;
+    bottom: -18%;
+
+    width: 140%;
+    height: 42%;
+
+    z-index: 3;
+
+    background:
+        rgba(255, 235, 215, 0.32);
+
+    filter: blur(18px);
+
+    border-radius: 50%;
+}
+
+
+.hero-plane {
+    position: absolute;
+
+    right: 25px;
+    top: 40px;
+
+    font-size: 34px;
+
+    color: #00594e;
+
+    transform: rotate(-14deg);
+}
+
+
+.hero-message {
+    position: absolute;
+
+    left: 14px;
+    right: 12px;
+    top:auto;
+    bottom: 20px;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #00594e;
+
+    background: transparent;
+
+    padding: 0;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+.hero-message span {
+    margin-bottom: 4px;
+
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+
+    color: #fff8ec;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 1px 3px rgba(0, 70, 60, 0.28);
+}
+
+.hero-message strong {
+    font-family:
+        "Segoe Print",
+        "Bradley Hand",
+        "Comic Sans MS",
+        cursive;
+
+    font-size: 28px;
+    line-height: 1.05;
+    font-weight: 500;
+
+    color: #fff8ec;
+
+    transform: rotate(-3deg);
+
+    text-shadow:
+        0 1px 3px rgba(0, 70, 60, 0.30),
+        0 0 8px rgba(255, 255, 255, 0.16);
+}
+
+
+/* decorative hero blobs */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    right: -105px;
+    top: -105px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 166, 79, 0.12);
+}
+
+
+/* =========================================
+   CALCULATOR CARD
+   ========================================= */
 
 .calculator {
     position: relative;
+    z-index: 3;
+
     overflow: hidden;
 
-    padding: 24px 20px;
+    margin-top: -12px;
+
+    padding: 26px 20px 22px;
+
+    border-radius: 30px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.88),
-            rgba(255, 248, 241, 0.78)
+            rgba(255,255,255,0.93),
+            rgba(255,249,243,0.88)
         );
 
-    border: 1px solid rgba(255, 255, 255, 0.92);
-
-    border-radius: 30px;
+    border:
+        1px solid rgba(255,255,255,0.95);
 
     box-shadow:
-        0 20px 50px rgba(43, 51, 48, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        0 22px 50px rgba(45, 55, 51, 0.10);
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -301,66 +476,67 @@ h1 {
 
     position: absolute;
 
-    width: 190px;
-    height: 190px;
+    width: 140px;
+    height: 140px;
 
-    right: -95px;
-    top: -90px;
+    right: -70px;
+    top: -70px;
 
     border-radius: 50%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(255, 141, 42, 0.24),
-            rgba(255, 141, 42, 0)
-        );
+        rgba(255, 151, 66, 0.11);
 
     pointer-events: none;
 }
 
 
-
-
-/* ===============================
-   LABEL
-================================ */
+/* =========================================
+   FORM
+   ========================================= */
 
 .calculator label {
     display: block;
 
-    margin-top: 20px;
+    margin-top: 19px;
     margin-bottom: 8px;
 
-    color: #174a43;
+    color: #07564e;
 
-    font-size: 13px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 750;
 }
 
-/* ===============================
-   INPUTS
-================================ */
 
-.calculator select,
-.calculator input {
+.calculator label:first-of-type {
+    margin-top: 0;
+}
+
+
+.calculator input,
+.calculator select {
     width: 100%;
 
     min-height: 58px;
 
-    padding: 0 17px;
+    padding:
+        0
+        17px;
 
-    border: 1px solid rgba(23, 74, 67, 0.12);
+    border:
+        1px solid rgba(9, 79, 71, 0.12);
 
     border-radius: 19px;
 
     outline: none;
 
-    background: rgba(255, 255, 255, 0.82);
+    background:
+        rgba(255,255,255,0.87);
 
-    color: #263330;
+    color: #273531;
 
     font-family: inherit;
+
     font-size: 16px;
 
     transition:
@@ -369,165 +545,181 @@ h1 {
         background 0.2s ease;
 }
 
+
 .calculator input:focus,
 .calculator select:focus {
-    border-color: rgba(239, 84, 35, 0.55);
+    border-color:
+        rgba(239, 84, 35, 0.55);
 
-    background: #ffffff;
+    background: #fff;
 
     box-shadow:
-        0 0 0 4px rgba(239, 84, 35, 0.08);
+        0 0 0 4px
+        rgba(239, 84, 35, 0.08);
 }
+
+
+/* Dropdown arrow */
 
 .calculator select {
     appearance: none;
+
+    padding-right: 44px;
 
     background-image:
         linear-gradient(
             45deg,
             transparent 50%,
-            #164d46 50%
+            #07564e 50%
         ),
         linear-gradient(
             135deg,
-            #164d46 50%,
+            #07564e 50%,
             transparent 50%
         );
 
     background-position:
-        calc(100% - 20px) 26px,
-        calc(100% - 15px) 26px;
+        calc(100% - 21px) 27px,
+        calc(100% - 16px) 27px;
 
     background-size:
         5px 5px,
         5px 5px;
 
     background-repeat: no-repeat;
-
-    padding-right: 42px;
 }
 
 
-/* Placeholder */
+/* =========================================
+   HELPER TEXT
+   ========================================= */
 
-input::placeholder {
-    color: #aaa39d;
+.helper-text {
+    display: block;
+
+    margin-top: 7px;
+    margin-bottom: 13px;
+
+    padding-left: 2px;
+
+    color: #87908e;
+
+    font-size: 10.5px;
+    line-height: 1.45;
 }
 
 
-/* Focus */
+/* =========================================
+   CTA
+   ========================================= */
 
-select:focus,
-input:focus {
-
-    background: rgba(255, 255, 255, 0.95);
-
-    border-color:
-        rgba(255, 128, 30, 0.65);
-
-    box-shadow:
-        0 0 0 4px
-        rgba(255, 128, 30, 0.10);
-
-    transform: translateY(-1px);
-}
-
-
-/* ===============================
-   BUTTON
-================================ */
 #calculateButton {
     width: 100%;
 
-    min-height: 60px;
+    min-height: 58px;
 
-    margin-top: 28px;
+    margin-top: 26px;
 
     border: none;
+
     border-radius: 999px;
 
-    color: #ffffff;
+    color: #fff;
 
     background:
         linear-gradient(
             100deg,
-            #ff8a19,
-            #ef5423
+            #ff8b1c,
+            #f04b24
         );
 
     font-family: inherit;
+
     font-size: 16px;
     font-weight: 750;
 
     cursor: pointer;
 
     box-shadow:
-        0 14px 30px rgba(239, 84, 35, 0.22);
+        0 14px 30px
+        rgba(239, 84, 35, 0.22);
 
     transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+        transform 0.18s ease;
 }
+
 
 #calculateButton:active {
     transform: scale(0.985);
 }
 
 
-/* ===============================
+/* =========================================
    RESULT CARD
-================================ */
+   ========================================= */
 
 .result {
-
     display: none;
 
-    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
 
-    padding: 30px;
+    margin-top: 18px;
+
+    padding: 24px 20px;
 
     border-radius: 30px;
 
-    background:
-        rgba(24, 23, 22, 0.94);
-
     color: white;
 
-    box-shadow:
-        0 25px 60px
-        rgba(35, 25, 18, 0.18);
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 173, 51, 0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #073f39,
+            #006255
+        );
 
-    backdrop-filter: blur(20px);
+    box-shadow:
+        0 20px 45px
+        rgba(0, 70, 61, 0.20);
 }
 
 
 .result h2 {
+    margin-bottom: 16px;
 
-    font-size: 24px;
-    font-weight: 500;
+    color: #ffffff;
 
-    margin-bottom: 22px;
+    font-size: 22px;
+    font-weight: 750;
 
-    letter-spacing: -0.5px;
+    letter-spacing: -0.025em;
 }
 
-
 .result p {
+    display: grid;
 
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
 
-    padding: 13px 0;
+    gap: 14px;
 
-    margin: 0;
-
-    font-size: 15px;
-
-    color: #bdb9b5;
+    padding: 14px 0;
 
     border-bottom:
-        1px solid rgba(255, 255, 255, 0.08);
+        1px solid rgba(255,255,255,0.14);
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 11px;
+    line-height: 1.45;
 }
 
 
@@ -537,233 +729,83 @@ input:focus {
 
 
 .result strong {
-
-    color: white;
-
-    font-weight: 500;
-
     text-align: right;
-}
 
+    color: #fff;
 
-/* ===============================
-   TRANSACTION TYPE
-================================ */
-
-#transactionTypeSection {
-    transition: all 0.25s ease;
-}
-
-
-/* ===============================
-   RESPONSIVE
-================================ */
-
-@media (max-width: 768px) {
-
-    body {
-        padding: 14px;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .calculator {
-        padding: 22px 18px;
-        border-radius: 26px;
-    }
-
-    .calculator label {
-        margin-top: 18px;
-        font-size: 13px;
-    }
-
-    .calculator input,
-    .calculator select {
-        min-height: 56px;
-        font-size: 16px;
-        border-radius: 18px;
-    }
-
-     #calculateButton {
-        min-height: 56px;
-        margin-top: 24px;
-        font-size: 16px;
-}      
-    }
-
-
-
-    .app-header {
-    padding-top: 8px;
-    padding-bottom: 24px;
-}
-
-
-.brand-row {
-    margin-bottom: 24px;
-}
-
-
-.hero {
-    min-height: 270px;
-}
-
-
-.hero h1 {
-    max-width: 270px;
-
-    font-size: 40px;
-}
-
-
-.subtitle {
-    max-width: 245px;
-
-    font-size: 13px;
-}
-
-
-.hero-visual {
-    width: 112px;
-    height: 175px;
-
-    right: -8px;
-    top: 90px;
-}
-
-
-    select,
-    input {
-        min-height: 56px;
-        font-size: 16px;
-        border-radius: 18px;
-        padding: 0 16px;
-    }
-
-    button {
-        width: 100%;
-        min-height: 56px;
-        margin-top: 24px;
-        border-radius: 999px;
-        font-size: 16px;
-        font-weight: 700;
-    }
-
-    .result {
-        margin-top: 22px;
-        padding: 22px 18px;
-        border-radius: 24px;
-    }
-
-    .result h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .result p {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        align-items: flex-start;
-        padding: 14px 0;
-        margin: 0;
-    }
-
-    .result p strong {
-        text-align: right;
-        max-width: 55%;
-    }
-
-    #bonusLabel {
-        max-width: 45%;
-    }
-}
-
-
-.helper-text {
-    display: block;
-
-    margin-top: 8px;
-    margin-bottom: 14px;
-
-    padding-left: 2px;
-
-    color: #7b8582;
-
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.45;
+
+    overflow-wrap: anywhere;
 }
 
-@media (min-width: 769px) {
+
+/* =========================================
+   DESKTOP PRESENTATION
+   ========================================= */
+
+@media (min-width: 600px) {
 
     body {
-        padding: 36px 28px;
+        padding:
+            36px
+            20px;
     }
 
     .container {
-        width: 100%;
-        max-width: 900px;
-        margin: 0 auto;
+        min-height: auto;
+
+        border-radius: 34px;
+
+        box-shadow:
+            0 35px 90px
+            rgba(48, 58, 54, 0.14);
     }
+}
 
 
-    /* HEADER */
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
 
-    .app-header {
-        padding: 6px 8px 24px;
-    }
+@media (max-width: 380px) {
 
-    .brand-row {
-        margin-bottom: 28px;
-    }
-
-
-    /* HERO */
-
-    .hero {
-        min-height: 230px;
-        padding-right: 210px;
+    .container {
+        padding:
+            20px
+            14px
+            34px;
     }
 
     .hero h1 {
-        max-width: 560px;
-
-        font-size: 58px;
-        line-height: 0.96;
+        font-size: 36px;
     }
-
-    .subtitle {
-        max-width: 500px;
-
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-
-    /* TRAVEL VISUAL */
 
     .hero-visual {
-        width: 165px;
-        height: 215px;
-
-        right: 5px;
-        top: 5px;
+        width: 125px;
+        right: -35px;
     }
-
-
-    /* CALCULATOR */
 
     .calculator {
-        width: 100%;
-
-        margin-top: 12px;
-
-        padding: 38px 42px;
-
-        border-radius: 32px;
+        padding:
+            24px
+            16px
+            20px;
     }
+}
 
+.result p:nth-of-type(4) {
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
+.result p:nth-of-type(4) strong {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.result p:last-child strong {
+    font-size: 18px;
+    font-weight: 800;
 }
